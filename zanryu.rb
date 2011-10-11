@@ -2,12 +2,15 @@
 
 require 'socket'
 require 'mechanize'
+require 'yaml'
 
-sfs = "https://vu8.sfc.keio.ac.jp/sfc-sfs"
-lecname = "授業名"
-yourphonenumber = "電話番号"
-parentsphonenumber = "保護者の電話番号"
-staytime = "帰宅時間"
+config = YAML.load(File.open("config.yaml"))
+
+sfs = "https://gc.sfc.keio.ac.jp/sfc-sfs"
+lecname = config['lecture']
+yourphonenumber = config['phone']
+parentsphonenumber = config['emargency']
+staytime = config['time']
 selectroom = "棟番号"
 =begin
 1 => k
